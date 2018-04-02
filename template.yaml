@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Hello World Go Lambda function 
+
+Resources:
+
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main
+      CodeUri: ./main.zip
+      Runtime: go1.x
+      MemorySize: 128
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 3
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /
+            Method: any
+Outputs:
+  HelloLambda:
+    Description: First Lambda application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/'
+    Export:
+      Name: HelloLambda
