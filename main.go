@@ -24,7 +24,7 @@ var adapter *gorillamux.GorillaMuxAdapter
 
 func defaultHandler(rw http.ResponseWriter, req *http.Request) {
 	log.Info("Serving / ...")
-	rw.Write([]byte("Hello lamdba world\n"))
+	rw.Write([]byte("Hello lamdba world updated.\n"))
 }
 
 func setupRouter() *mux.Router {
