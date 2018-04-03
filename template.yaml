@@ -17,6 +17,11 @@ Resources:
         GetResource:
           Type: Api
           Properties:
+            Path: /{proxy+}
+            Method: any
+        GetRootResource:
+          Type: Api
+          Properties:
             Path: /
             Method: any
 Outputs:
